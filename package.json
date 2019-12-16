@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "three": "^0.111.0",
     "vue": "^2.5.2",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^6.0.0",

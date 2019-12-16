@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "../../../tslint.json"
+    ],
+    "rules": {
+        "completed-docs": [
+            true, 
+            {
+                "methods": true,
+                "properties": true
+            }
+        ]
+    }
+}

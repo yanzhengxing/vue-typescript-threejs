@@ -26,6 +26,13 @@
       "es7",
       "es2015.promise"
     ],
+    "typeRoots": [
+
+      "./types",
+      
+      "./node_modules/vue/types"
+      
+    ],
     "sourceMap": true,
     "pretty": true
   }

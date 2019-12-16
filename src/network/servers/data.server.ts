@@ -13,7 +13,6 @@ export class DataServer extends Business {
     // use extra config
     // super(window.config.publisher);
     // use local config
-    // super("http://geo-engine.gagogroup.cn/api/v1");
-    super(window.config.dataServer);
+    super("http://geo-engine.gagogroup.cn/api/v1");
   }
 }

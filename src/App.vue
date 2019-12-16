@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <p>我就是个栗子</p>
     <router-view/>
   </div>
 </template>
@@ -15,13 +14,14 @@ export default class App extends Vue {
 </script>
 
 <style>
+body{
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 </style>

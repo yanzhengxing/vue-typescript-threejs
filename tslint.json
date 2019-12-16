@@ -1,7 +1,4 @@
 {
-  "extends": [
-      "@gago/tslint-config-react"
-  ],
   "rules": {
       "quotemark": [
           true,

@@ -33,31 +33,32 @@ export default class ThreeView extends Vue {
   initMesh () {
     this.scene = new THREE.Scene() // 场景
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000) // 相机.视场，长宽比，近面，远面
-    this.camera.position.x = -20
-    this.camera.position.y = 40
-    this.camera.position.z = 30
+    this.camera.position.x = 0
+    this.camera.position.y = 10
+    this.camera.position.z = 20
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true })// 渲染器
-    this.renderer.setSize(window.innerWidth, window.innerHeight - 100)
+    this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.renderer.shadowMapEnabled = true // 开启阴影
 
-    let axes = new THREE.AxesHelper(20) // 坐标轴
+    let axes = new THREE.AxesHelper(40) // 坐标轴
 
     let planeGeometry = new THREE.PlaneGeometry(60, 20, 10, 10) // 生成平面
-    let planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff}) // 材质
+    let planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, side: THREE.DoubleSide,}) // 材质
     let plane = new THREE.Mesh(planeGeometry, planeMaterial)
     plane.rotation.x = -0.5 * Math.PI
     plane.position.x = 0
     plane.position.y = 0
     plane.position.z = 0
     plane.receiveShadow = true
+    
 
     let cubeGeometry = new THREE.BoxGeometry(10, 10, 10)
     let cubeMaterial = new THREE.MeshLambertMaterial({color: 0xff0000})
     this.cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
-    this.cube.position.x = -4
-    this.cube.position.y = 3
+    this.cube.position.x = 0
+    this.cube.position.y = 0
     this.cube.position.z = 0
     this.cube.castShadow = true
 
@@ -86,11 +87,13 @@ export default class ThreeView extends Vue {
     controls.maxDistance = 600;
     //是否开启右键拖拽
     controls.enablePan = true;
+    controls.rotationSpeed = 0.01;
     this.controls = controls;
     this.renderScene()
   }
   renderScene () {
-    let {cube, scene, camera, renderer} = this as any
+    let {controls, cube, scene, camera, renderer} = this as any
+    controls.update();
     // cube.rotation.x += controls.rotationSpeed
     // cube.rotation.y += controls.rotationSpeed
     // cube.rotation.z += controls.rotationSpeed
@@ -105,6 +108,5 @@ export default class ThreeView extends Vue {
 canvas{
   width: 100vw!important;
   height: 100vh!important;
-  border: 1px solid red;
 }
 </style>
